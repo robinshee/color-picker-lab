@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Picker Tool</title>
+
+  <!-- ✅ Microsoft Clarity Tracking Code -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "tu7q244jl6");
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #f0f2f5;
+      --card-bg: #ffffff;
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --text-color: #111827;
+      --border-radius: 10px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 1rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .color-display {
+      height: 100px;
+      width: 100%;
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: var(--primary);
+      border: none;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: var(--primary-dark);
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎨 Color Picker Tool</h1>
+    <div class="color-display" id="colorDisplay"></div>
+    <button id="generateBtn">Generate Color</button>
+    <p id="colorCode">#FFFFFF</p>
+  </div>
+
+  <script>
+    const colorDisplay = document.getElementById("colorDisplay");
+    const colorCode = document.getElementById("colorCode");
+    const generateBtn = document.getElementById("generateBtn");
+
+    function randomColor() {
+      const randomHex = Math.floor(Math.random() * 16777215).toString(16);
+      const color = "#" + randomHex.padStart(6, "0");
+      colorDisplay.style.backgroundColor = color;
+      colorCode.textContent = color;
+    }
+
+    generateBtn.addEventListener("click", randomColor);
+    randomColor(); // show a color on load
+  </script>
+</body>
+</html>
